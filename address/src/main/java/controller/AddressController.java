@@ -46,5 +46,12 @@ public class AddressController {
             addressService.deleteAddress(addressId);
             return new ResponseEntity<>("Address deleted successfully", HttpStatus.OK);
         }
+    @GetMapping("/empld/{empld}")
+    public ResponseEntity<List<AddressDto>> getAddressByEmpld(@PathVariable Long empld) {
+        List<AddressDto> response = addressService.getAllAddress(empld);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+
+    }
+
 }
 

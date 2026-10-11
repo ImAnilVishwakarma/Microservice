@@ -1,5 +1,10 @@
 package model.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import java.util.List;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EmployeeDto {
 
     private Long id;
@@ -7,7 +12,7 @@ public class EmployeeDto {
     private String empEmail;
     private String empCode;
     private String companyName;
-
+    private List<AddressDto> addressDtoList;
 
     public Long getId() {
         return id;
@@ -49,6 +54,26 @@ public class EmployeeDto {
         this.companyName = companyName;
     }
 
+    public void setAddressDtoList(List<AddressDto> addressDtoList) {
+        this.addressDtoList = addressDtoList;
+    }
+
+    public List<AddressDto> getAddressDtoList() {
+        return addressDtoList;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeeDto{" +
+                "id=" + id +
+                ", empName='" + empName + '\'' +
+                ", empEmail='" + empEmail + '\'' +
+                ", empCode='" + empCode + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", addressDtoList=" + addressDtoList +
+                '}';
+    }
+
     public EmployeeDto(Long id, String empName, String empEmail, String empCode, String companyName) {
         this.id = id;
         this.empName = empName;
@@ -57,16 +82,6 @@ public class EmployeeDto {
         this.companyName = companyName;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", empName='" + empName + '\'' +
-                ", empEmail='" + empEmail + '\'' +
-                ", empCode='" + empCode + '\'' +
-                ", companyName='" + companyName + '\'' +
-                '}';
-    }
 
     public EmployeeDto() {
     }

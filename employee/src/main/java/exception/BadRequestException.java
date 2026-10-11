@@ -7,7 +7,7 @@ public class BadRequestException extends RuntimeException {
     private String message;
     private HttpStatus status;
 
-    public BadRequestException(String message) {
+    public BadRequestException(String message, HttpStatus serviceUnavailable) {
         super(message);
         this.message = message;
         this.status = HttpStatus.BAD_REQUEST;

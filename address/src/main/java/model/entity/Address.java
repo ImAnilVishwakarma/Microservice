@@ -9,6 +9,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "emp_id")
     private Long empld;
     private String street;
     private Long pinCode;
